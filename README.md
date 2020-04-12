@@ -2,6 +2,10 @@
 
 First I want to credit [https://github.com/mathdroid/covid-19-api](https://github.com/mathdroid/covid-19-api) for his API. Without his hard work, this wouldn't be possible. Go give him a star.
 
+Test the API here: `https://covid19-graphql-api.herokuapp.com/api/graphql`
+
+Use this [GraphQL playground](https://www.graphqlbin.com/v2/new) and enter the endpoint above to play around with the data.
+
 This GraphQL API only returns cases confirmed, deaths, and recovered by country.
 
 Here is how the graphQL schema looks (Using [Apollo Server Express](https://www.npmjs.com/package/apollo-server-express)):
