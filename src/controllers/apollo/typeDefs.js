@@ -3,7 +3,7 @@ export const typeDefs = gql`
   type Detail {
     provinceState: String
     countryRegion: String
-    lastUpdate: Int
+    lastUpdate: String
     countString: String
     count: Int
     lat: Float
