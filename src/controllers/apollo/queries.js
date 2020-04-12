@@ -82,16 +82,19 @@ export const allCases = async (_, args) => {
       (item) => ({
         ...item,
         countString: formatNumber(item.confirmed),
+        lastUpdate: moment(item.lastUpdate).format("MMM DD YYYY HH:MM A Z"),
       })
     );
     const revisedTotalDeathsDetailed = totalDeathsConfirmed.map((item) => ({
       ...item,
       countString: formatNumber(item.deaths),
+      lastUpdate: moment(item.lastUpdate).format("MMM DD YYYY HH:MM A Z"),
     }));
     const revisedTotalRecoveredDetailed = totalRecoveredDetailed.map(
       (item) => ({
         ...item,
         countString: formatNumber(item.recovered),
+        lastUpdate: moment(item.lastUpdate).format("MMM DD YYYY HH:MM A Z"),
       })
     );
     confirmed.push({
