@@ -52,17 +52,20 @@ export const allCases = async (_, args) => {
       })
     );
     confirmed.push({
-      total: formatNumber(totalCountry.confirmed.value),
+      total: totalCountry.confirmed.value,
+      totalString: formatNumber(totalCountry.confirmed.value),
       lastUpdatedDate,
       detail: revisedTotalCountryConfirmedDetailed,
     });
     deaths.push({
-      total: formatNumber(totalCountry.deaths.value),
+      total: totalCountry.deaths.value,
+      totalString: formatNumber(totalCountry.deaths.value),
       lastUpdatedDate,
       detail: revisedTotalCountryDeathsDetailed,
     });
     recovered.push({
-      total: formatNumber(totalCountry.recovered.value),
+      total: totalCountry.recovered.value,
+      totalString: formatNumber(totalCountry.recovered.value),
       lastUpdatedDate,
       detail: revisedTotalCountryRecoveredDetailed,
     });
