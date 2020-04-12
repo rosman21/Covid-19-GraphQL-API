@@ -22,7 +22,9 @@ apolloServer.applyMiddleware({ app, path: "/api/graphql" });
 export const start = async () => {
   try {
     app.listen(PORT, () => {
-      console.log(`🚀 GRAPHQL API on ${PORT}${apolloServer.graphqlPath}`);
+      console.log(
+        `🚀 GRAPHQL API on running on PORT: ${PORT} PATH: ${apolloServer.graphqlPath}`
+      );
     });
   } catch (e) {
     console.error(e);
