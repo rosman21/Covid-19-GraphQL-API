@@ -12,7 +12,7 @@ const apolloServer = new ApolloServer({
   resolvers,
   playground: !(process.env.NODE_ENV === "production"),
 });
-const PORT = 8080 || process.env.PORT;
+const PORT = process.env.PORT || 5000;
 export const app = express();
 
 app.use(cors());
@@ -22,9 +22,7 @@ apolloServer.applyMiddleware({ app, path: "/api/graphql" });
 export const start = async () => {
   try {
     app.listen(PORT, () => {
-      console.log(
-        `🚀 GRAPHQL API on http://localhost:${PORT}${apolloServer.graphqlPath}`
-      );
+      console.log(`🚀 GRAPHQL API on ${PORT}${apolloServer.graphqlPath}`);
     });
   } catch (e) {
     console.error(e);
