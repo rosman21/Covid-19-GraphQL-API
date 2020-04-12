@@ -1,20 +1,30 @@
-import express from 'express';
-import {json, urlencoded} from 'body-parser';
-import morgan from 'morgan';
-import cors from 'cors';
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import dotenv from "dotenv";
+import { typeDefs } from "./controllers/apollo/typeDefs";
+import { resolvers } from "./controllers/apollo/resolvers";
+import { ApolloServer } from "apollo-server-express";
+dotenv.config();
 
+const apolloServer = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: !(process.env.NODE_ENV === "production"),
+});
 const PORT = 8080 || process.env.PORT;
 export const app = express();
 
 app.use(cors());
-app.use(json());
-app.use(urlencoded({extended: true}));
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
-export const start = async() => {
+apolloServer.applyMiddleware({ app, path: "/api/graphql" });
+export const start = async () => {
   try {
     app.listen(PORT, () => {
-      console.log(`REST API on http://localhost:${PORT}/`);
+      console.log(
+        `🚀 GRAPHQL API on http://localhost:${PORT}${apolloServer.graphqlPath}`
+      );
     });
   } catch (e) {
     console.error(e);

@@ -1,0 +1,25 @@
+# since we are using babel to transpile our code use the babel eslint wrapper
+parser: babel-eslint
+env:
+  # we are using a node enviorment so lint based on nodejs best practices
+  node: true
+extends:
+  # follow standard js best practices
+  - standard
+  # format our code based on our prettier file
+  - prettier
+  # for import statments, give us errors if done incorrectly
+  - plugin:import/errors
+  # follow best practice when using promises
+  - plugin:promise/recommended
+plugins:
+  # leverage the prettier so we can extend it
+  - prettier
+  # leverage the prettier so we can extend it
+  - promise
+rules:
+  # throw an error if there is not a catch after a promise
+  promise/catch-or-return: error
+  # show errors based on our prettier config
+  prettier/prettier:
+    - error

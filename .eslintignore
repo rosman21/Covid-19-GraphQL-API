@@ -1,0 +1,4 @@
+docroot/**
+dist/**
+.vscode/**
+.idea/**
