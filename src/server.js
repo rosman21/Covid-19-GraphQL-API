@@ -11,6 +11,7 @@ const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   playground: !(process.env.NODE_ENV === "production"),
+  introspection: true,
 });
 const PORT = process.env.PORT || 5000;
 export const app = express();
